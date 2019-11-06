@@ -1,0 +1,76 @@
+<MainScreen>:
+    Log:
+        name:"Login"
+
+    User:
+        name:"User"
+
+    Db:
+        name:"Database"
+
+<Button>:
+    color: 1,1,1,1
+    font_size: 15
+    size_hint: .3, .1
+
+<User>:
+    id:giris
+    FloatLayout:
+        size_hint:[.6,.3]
+        GridLayout:
+            pos_hint: {'x': .4, 'y': 1.2}
+            rows:3
+            cols:2
+            Label:
+                text:"User"
+            TextInput:
+                id:kullanici
+            Label:
+                text:"Password"
+            TextInput:
+                id:sifre
+
+            Label:
+            Button:
+                text:"Log In"
+                #on_press: giris.Control(kullanici.text,sifre.text)
+                on_press: root.manager.current = 'Database'
+
+<Log>:
+    id: calculator
+    FloatLayout:
+        Button:
+            text: 'Log In'
+            pos_hint: {'x': .2, 'y': .5}
+            on_press: root.manager.current = 'User'
+        Button:
+            text: 'Quit'
+            pos_hint: {'x': .2, 'y': .4}
+            on_press: quit()
+<Db>:
+    id:datam
+    display:data
+
+    BoxLayout:
+        id:data
+        orientation:"vertical"
+        BoxLayout:
+            Button:
+                size_hint: .3, .5
+                text:"aaaaaaa"
+                on_press: datam.Goster("aaaaaaaa")
+            Button:
+                size_hint: .3, .5
+                text:"bbbbbbb"
+                on_press: datam.Goster("bbbbbb")
+            Button:
+                size_hint: .3, .5
+                text:"cccccc"
+                on_press: datam.Goster("ccccc")
+            Button:
+                size_hint: .3, .5
+                text:"ddddd"
+                on_press: datam.Goster("dddddd")
+        Label:
+            id:data
+            text:""
